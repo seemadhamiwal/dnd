@@ -1,18 +1,26 @@
 import logo from './logo.svg';
 import './App.css';
-import Draggable from './Draggable';
+import React from 'react';
+import Draggable from 'react-draggable';
+// import Data from './Data.js';
+import { useState } from 'react';
+
+import { Data } from './Data';
+import DraggableInputs from './DraggableInputs';
 import Droppable from './Droppable';
-import { DndContext} from '@dnd-kit/core';
-import
 function App() {
-  return (
-    <div className="App">
-    <DndContext>
-      <Draggable/>
-      <Droppable/>
-    </DndContext>
-    </div>
-  );
+
+  const [selectedDiv ,  setSelectedDiv] = useState();
+  console.log("data given ",selectedDiv);
+  
+
+  return(
+    <>
+    <DraggableInputs selectDiv={selectedDiv} setSelect={setSelectedDiv}/>
+    <Droppable selectDiv={selectedDiv} setSelect={setSelectedDiv}/>
+    </>
+  )
+  
 }
 
 

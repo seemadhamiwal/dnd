@@ -36,3 +36,30 @@
     transform: rotate(360deg);
   }
 }
+.Area{
+  border: 1px  solid black;
+  margin: 4px;
+  
+  
+}
+.content{
+  justify-content: center;
+  margin: 10px;
+  display: flex;
+  flex-direction: row;
+}
+.canvas{
+  margin-left: auto;
+  margin-right: auto;
+  border: 2px solid black;
+  height: 500px;
+  width: 800px;
+
+}
+.outercanvas{
+  margin-left: auto;
+  margin-right: auto;
+  border: 2px solid blue;
+  height: 500px;
+  width: 800px;
+}
