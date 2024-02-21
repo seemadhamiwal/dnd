@@ -14,38 +14,63 @@ const Droppable = ({selectDiv,setSelect}) =>{
         if(selectDiv){
             
             setElements([...elements,selectDiv]);
+            updateLocalStorage([...elements,selectDiv]);
         }
       },[selectDiv])
     console.log('content added' , elements);
 
+    useEffect(()=>{
+      const storedElements = localStorage.getItem("canvasElements");
+      if(storedElements){
+        setElements(JSON.parse(storedElements));
+      }
+    },[]);
+
+    const updateLocalStorage = (data) =>{
+      localStorage.setItem("canvasElements" , JSON.stringify(data));
+      
+    }
+
+    const handledelete = (index) =>{
+      const newData = elements.filter((i) => i.id !== index);
+      console.log("new data",newData)
+      setElements(newData);
+      updateLocalStorage(newData);
+
+    }
+
     return(
-        <div className="canvas" >
+        <div className="outercanvas"  >
               <span ref={nodeRef}>
               
-              <div className='canvas'>
+              <div className='canvas' >
               {
                 elements.map((item) =>{
                     return (
                         <Draggable nodeRef={nodeRef}
+                        key={item.id}
               axis="both"
               handle=".handle"
-              defaultPosition={{x: 0, y: 0}}
-              position={null}
+              defaultPosition={{x:0,y:0}}
+              // position="absolute"
             //   grid={[25, 25]}
               scale={1}
               onStart={eventHandler}
               onDrag={eventHandler}  
               onStop={eventHandler}
               allowAnyClick={true}
-              bounds="parent">
-              <div>
-                {(
+              bounds={{ top: -0, left: -0, right: 605 , bottom: 445 }}
+
+              >
+           
+
+                 {(
                   <div className="handle" style={{border: "2px solid red", padding: "1rem", width:"20%"}}>
                     {item.name}
-                    <span>        &#128465;</span>
+                    <button onClick={()=>handledelete(item.id)}>&#128465;</button>
                   </div>
-                )}
-              </div>
+                )} 
+            
               </Draggable>
                     )
                 })
