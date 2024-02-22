@@ -8,7 +8,7 @@ import {v4 as uuid} from "uuid";
 
 const DraggableInputs = ({selectDiv,setSelect}) =>{
   const [elements, setElements] = useState([]);
-  const newComponent = {position: { x: 0, y: 0}};
+  // const newComponent = {position: { x: 0, y: 0}};
 
   
     

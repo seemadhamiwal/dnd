@@ -1,5 +1,5 @@
 
-import {v4 as uuidv4} from "uuid"
+// import {v4 as uuidv4} from "uuid"
 
 export const Data=[
     {
@@ -16,16 +16,16 @@ export const Data=[
         name:"input 2",
         width:"100px",
         height:"20px",
-        positionx:"0",
-        positiony:"0",
+        positionx:"43",
+        positiony:"49",
     },
     {
         id:"3",
         name:"input 3",
         width:"100px",
         height:"20px",
-        positionx:"0",
-        positiony:"0",
+        positionx:"29",
+        positiony:"20",
 
 
     }
